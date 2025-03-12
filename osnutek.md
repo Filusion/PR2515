@@ -16,6 +16,12 @@ This project focuses on analyzing CO2 and other harmful gas emissions. The main 
 - Visualization tools to interpret correlations effectively.
 - Make predictions about future CO2 emissions based on identified trends and contributing factors.
 
+## Expected Results
+
+- Better understanding of the impact of various factors on CO2 and harmful gas emissions.
+
+- Visualization tools that will allow a better understanding of the connections.
+
 ## Data
 
 The data that will be used from: https://carbonmonitor-graced.com/datasets.html#data-download , https://www.kaggle.com/datasets/wanderhike/co2-emissions-data-for-186-countries , https://www.kaggle.com/datasets/samithsachidanandan/air-traffic-in-europe-from-2016-to-2024 ...
