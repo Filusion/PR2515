@@ -55,6 +55,9 @@ Podatki, ki bodo uporabljeni iz: https://carbonmonitor-graced.com/datasets.html#
 
 
 Filip Vichoroski
+
 Angel Karali
+
 Ivana Vasilevska
+
 Tjaš Likar Vavken
