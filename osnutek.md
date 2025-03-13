@@ -53,3 +53,8 @@ Ta projekt se osredotoča na analizo emisij CO2 in drugih škodljivih plinov. Gl
 
 Podatki, ki bodo uporabljeni iz: https://carbonmonitor-graced.com/datasets.html#data-download , https://www.kaggle.com/datasets/wanderhike/co2-emissions-data-for-186-countries , https://www.kaggle.com/datasets/samithsachidanandan/air-traffic-in-europe-from-2016-to-2024 ...
 
+
+Filip Vichoroski
+Angel Karali
+Ivana Vasilevska
+Tjaš Likar Vavken
