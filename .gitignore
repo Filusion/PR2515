@@ -1,0 +1,11 @@
+# Ignore JetBrains IDE settings
+.idea/
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore virtual document folders (used in some notebook environments)
+.virtual_documents/
+
+# Ignore Anaconda project metadata
+anaconda_projects/
