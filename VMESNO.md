@@ -28,9 +28,10 @@ Another important part of our research is analyzing how different economic secto
 
 ### 2.1 Data and Tools
 
-We are using publicly available datasets from a trusted source — The Intergovernmental Panel on Climate Change (IPCC).
+We are using publicly available datasets from a trusted source — Emissions Database for Global Atmospheric Research (EDGAR)
 
 The dataset includes annual CO2 emissions (in kilotons) for countries worldwide from 1970 to 2023. It not only provides total emissions per country but also breaks them down by sector, showing how much CO2 each sector contributes. Additionally, there's a Region column, which allows us to filter and focus specifically on European countries for our analysis.
+https://edgar.jrc.ec.europa.eu/dataset_ghg2024
 
 ### 2.2 Our Approach and Key Findings
 
