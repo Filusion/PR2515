@@ -9,13 +9,11 @@
 
 ## 1.2 Introduction
 
-Global climate change is one of the most pressing issues of our time. CO₂ emissions from fossil fuels and industrial processes are the leading contributors to global warming. This project explores the evolution of CO₂ emissions across European countries, examines the effectiveness of major international climate agreements, and identifies key drivers of emissions.
-
-We also provide interactive tools to visualize and understand emissions by country, sector, and economic indicators, with the goal of revealing actionable insights.
+This project focuses on analyzing CO2 and other harmful gas emissions. The main goal is to study how different factors impact these emissions and identify potential contributors. By conducting this analysis, we aim to gain a better understanding of the relationships between human activities and gas emissions.
 
 ## 2. Data
 
-Our datasets come from reputable sources including the European Union’s official databases such as Eurostat and EDGAR, as well as other public repositories like Kaggle. During the data preparation phase, we filtered out datasets that were not from official or reliable sources to ensure data quality and consistency. Additionally, we supplemented the data by adding countries that were initially missing, allowing for a more comprehensive and accurate analysis across Europe.
+Our datasets come from reputable sources including the European Union's official databases such as EDGAR and other sources like Kaggle. During the data preparation phase, we encountered some issues with certain European countries, which required additional filtering to bring them into a usable format. The datasets include annual CO2 emissions (in kilotons) for countries worldwide from 1970-2023. They do not only provide total emissions per country but also break them down by sector, showing how much CO2 each sector contributes. Additionally, we used various datasets to obtain information on European countries population, GDP, and climate change, which we later used to compare against CO2 emissions.
 
 ## 3. Data analysis 
 
@@ -23,98 +21,131 @@ Our datasets come from reputable sources including the European Union’s offici
 
 ![image.png](./img/avg_co2.png)
 
-This section focuses on the top 10 European countries with the highest average CO₂ emissions. As expected the top CO2 emission countries are the bigger ones with highly developed industries.The leading country is Russia, followed by Germany, UK, Ukraine, France and Italy.
+This section focuses on the top 10 European countries with the highest average CO2 emissions. As expected the top CO2 emission countries are the bigger ones with highly developed industries. As seen in the plot above the leading country is Russia, followed by Germany, UK, Ukraine, France and Italy.
 
 ### 3.2 Top 10 most polluted countries (Timeline 1970-2023)
 
+To gain a clearer view and understanding of CO2 emission trends during the analysis period (1970-2023), we created a timeline visualization of the top 10 European countries with the highest average CO2 emissions over the years.
+
 ![image.png](./img/timeline.png)
 
-Here we can see that Russia and Ukraine had a massive dropdown in CO2 emission somwhere in the year 1990. That was because of the collapse of the Soviet Union. In the next picture we can see how did that affect the other countries in that Union.
+The plot clearly shows a sharp decline in CO2 emissions for Russia and Ukraine around 1990, prompting further investigation into this unusual drop. Our research revealed that this was due to the collapse of the Soviet Union, which led to the shutdown of many factories and other factors that significantly reduced CO2 emissions.
 
-### 3.3 Normalizaed CO2 Emissions(Relative to 1990) - European Soviet Countries 
+### 3.3 CO2 emissions per capita  
+
+We realized that analyzing CO2 emissions in isolation wasn't sufficient for meaningful insights. Therefore, we performed additional comparisons involving CO2 emissions. In the next map visualization, we present the results of comparing CO2 emissions with each country's population.
+
+![image.png](./img/per_capita.png)
+
+At first glance, the results shown on the map appear promising. However, a closer analysis reveals that some countries with relatively small populations, such as Luxembourg, rank disproportionately high-an outcome that doesn't align with expectations. This suggests that this approach may not be the most reliable for drawing accurate conclusions.
+
+### 3.4 CO2 emissions per Million USD GDP
+
+The next analysis involved comparing CO2 emissions with each country's GDP. Specifically, we calculated the amount of CO2 emitted per $1,000,000 of GDP. This approach gived the following results.
+
+![image.png](./img/per_gdp_worst.png)
+
+![image.png](./img/per_gdp_best.png)
+
+The plots reveal a clear pattern: Western European countries perform best due to developed, service-based economies and strong environmental regulations, leading to lower CO₂ emissions per unit of GDP. In contrast, Eastern European countries like Ukraine, Russia, and Moldova still rely heavily on fossil fuels, resulting in higher emissions. This reflects the economic and infrastructural divide in sustainability between Western and Eastern Europe.
+
+###  3.5 Emission per km²
+
+The final analysis we conducted measured CO2 emissions per km² for each European country, giving the following results:
+
+![image.png](./img/by_area.png)
+
+Among all the methods we used to compare CO2 emissions with other factors, this one clearly performed the worst, as it ranked the smallest countries highest due to their small surface area.
+
+Overall, analyzing average CO2 emissions alone proved to be the most effective approach for this problem. Comparing by GDP came in a close second, followed by population, with area-based analysis ranking last.
+
+### 3.6 Leading sectors in CO2 emissions
+
+![image-2.png](./img/leading_sectors.png)
+
+By analyzing and visualizing the sectors contributing most to CO2 emissions in the top 5 highest-emitting countries, we identified the following key sectors as the primary contributors:
+
+- Public electricity and heat production
+- Residential and other sectors
+- Manufacturing Industries and Construction
+- Road transportation no resuspension
+- Other Energy Industrie
+- Cement production
+- Production of chemicals
+- Fugitive emissions from solid fuels
+- Production of metals
+- Lime production
+- Fugitive emissions from oil and gas
+- Fugitive emissions from gaseous fuels
+- Other direct soil emissions
+- Inland navigation
+- Rail transportation
+- And others...
+
+For which, we calculated the correlation with each European country, giving promising results as shown in the plot below.
+
+![image-2.png](./img/corr_lead_sect.png)
+
+### 3.7 Clustering European Countries by their CO2 emissions
+
+To cluster the countries in our datasets, we tried several approaches, all giving promising results. The most effective method was clustering based on each country's GDP efficiency combined with their CO2 emissions.
+We performed the clustering using the KNN algorithm and determined the optimal value of "K" using the Elbow Method (a technique that involves plotting the sum of squared errors for different K values and identifying the point where the rate of improvement sharply decreases, forming an "elbow" in the graph), yielding the following results:
+
+![image-2.png](./img/clustering.png)
+
+From the scatter plot we can see the formed clusters, such as:
+
+- Cluster 0: High GDP efficiency and low emissions (Switzerland, Norway, Sweden and others.)
+- Cluster 1: Low GDP efficiency and high emissions (Estonia and Luxembourg)
+- Cluster 2: Moderate GDP efficiency and moderate emissions (Germany, Italy, UK).
+
+### 3.8 CO2 emission forecast   
+
+From our dataset, we generated CO2 emission predictions for each country up to 2030. Using yearly data, we extracted features and trained several machine learning models to forecast future emissions.
+
+![image.png](./img/forecast_greece.png)
+![image.png](./img/forecast_germany.png)
+![image.png](./img/forecast_total.png)
+
+In the end we picked the SARIMA model because it effectively captured the trend and provided good predictions. We can see the example for Germany and Greece how the forecast follows the trend of the emissions.
+
+The final image shows results for all European countries, countries present in the dataset, indicating a decline in emissions in both the actual data and the forecasts.
+
+### 3.9 Key Periods and Events in European CO2 Emissions (1970-2023)
+
+During this project, we came across several interesting findings in our visualizations that prompted further investigation into key factors potentially contributing to CO2 emissions.
+
+#### Impact of the Breakup of Yugoslavia
+
+![image.png](./img/yugoslavia_before.png)
+![image.png](./img/yugoslavia_after.png)
+
+The plots show that before the breakup (1975-1990), emissions were relatively stable, reflecting Yugoslavia's unified industrial policies. After 1990, there is a sharp decline in emissions caused by economic collapse, war damage, and halted industrial activity-particularly in Bosnia, Serbia, and Croatia.
+
+
+#### The Collapse of the Soviet Union
 
 ![image.png](./img/soviet.png)
 
-All the countries that were in the Soviet Union had a rapid decreasing in CO2 emissions and the country that had the biggest percentage was Armenia. That seemes logical cause Armenia in that period of time had :
+Similarly, all countries that were part of the Soviet Union experienced a rapid decrease in CO2 emissions, with Armenia showing the largest percentage drop. This decline was likely caused by the collapse of heavy industries, economic disruption, and reduced energy production following the dissolution of the Soviet Union.
 
-Nagorno-Karabakh conflict (1988–1994): Military tensions with Azerbaijan disrupted borders and trade.
+#### The Nuclear Phase-Out in Germany
 
-Blockade by neighboring countries: Severely limited access to energy supplies (especially gas and oil).
+![image.png](./img/nuclear_germany.png)
 
-Shut down of the Metsamor Nuclear Power Plant after the 1988 earthquake (until 1995).
+The decision to phase out nuclear energy in Germany in 2011 appears to have caused a short-term increase in CO2 emissions. As nuclear power plants-which generate electricity without direct carbon emissions-were gradually shut down, Germany had to compensate for the lost energy by relying more on fossil fuels.
 
-Severe energy crisis in the early 1990s (frequent blackouts and limited industrial activity).
+#### The Kyoto Protocol and the Paris Agreement
 
-### 3.4 Emissions per Capita and GDP per Capita (2022)
+The Kyoto Protocol (1997) and the Paris Agreement (2015) are key international milestones that shaped Europe's CO2 emissions policies. Both agreements set targets to reduce greenhouse gas emissions, driving many European countries to implement stricter environmental regulations and transition to cleaner energy sources.
 
-![image.png](./img/mapakapita.png)
+## 4. Overview
 
-![image.png](./img/gdp_capita.png)
+### 4.1 Overview of the project
 
-The maps of European CO₂ and GDP per capita show clear contrasts in how wealth relates to emissions. Russia has high CO₂ emissions despite moderate GDP, pointing to energy-intensive industries. Sweden, with high GDP and low emissions, shows effective environmental policies and clean energy use. Germany ranks high in both, reflecting its strong industrial base, while Switzerland combines high wealth with low emissions, suggesting efficient and clean development. These patterns reveal that emissions depend not just on wealth, but also on energy sources, policies, and technology.
+As a final overview of the project, our analysis showed that CO₂ emissions increased in nearly every European country up to a certain point in time. This trend began to reverse when more developed countries started adopting renewable energy sources, leading to a gradual decline in emissions across much of Europe-marking a positive shift toward a more sustainable and environmentally conscious future.
 
-###  3.5 Emission per Million USD GDP by European Country
-![image.png](./img/USDGDP.png)
+### 4.2 Streamlit application
 
-The map clearly shows which countries emit the most CO₂ per $1,000,000 of GDP. High emitters include Ukraine, Russia, Estonia, and Bulgaria, while low emitters include Switzerland, Norway, and Sweden. Generally, wealthier countries have lower carbon intensity, likely due to better technology and cleaner energy. Russia stands out for its high emissions, driven by heavy fossil fuel use and energy-intensive industries.
+If you're interested in exploring more of our work-including additional visualizations and some interactive ones-check out our [Streamlit application](https://pr2515-co2-emissions-in-europe.streamlit.app/).
 
-### 3.6 Correlation between Population density and Co2 emissions per capita (2020)
-
-![image-2.png](./img/corr_pop_co2.png)
-
-The scatter plot shows no clear link between population density and CO₂ emissions per capita in Europe (2020). Luxembourg and Russia are outliers with high emissions despite differing densities. Malta, though the most densely populated, has low emissions. This suggests that energy use, economy, and transport matter more than population density alone.
-
-### 3.7 Correlation between cumulative Co2 and temperature annomaly 
-![image-2.png](./img/co2_vs_temp.png)
-
-![image.png](./img/corr_pop_co2.png)
-
-The trendline going upward indicates that as cumulative CO₂ emissions increase, so does the average temperature anomaly in Europe. The dots scattered around the line represent data points for each year — their proximity to the line shows how closely the data follows the general trend.A correlation of 0.95 means there's a very strong positive linear relationship — as CO₂ accumulates, temperature rises almost proportionally.
-
-### 3.8 Percentage of Co2 emissions by sector per cluster  
-
-![image.png](./img/sector.png)
-
-We identified 4 clusters of European countries based on sectoral CO₂ emissions:
-
-Cluster 1 (e.g. Estonia, Ireland): Small economies heavily reliant on public electricity and heat production (the top emitting sector at 40.2%).
-
-Cluster 2 (e.g. Albania, Malta): Transitional economies with emissions split between electricity, transport, and industry—electricity is again the largest contributor at 33.1%.
-
-Cluster 3 (e.g. Austria, Sweden): Diversified, mature economies with balanced emissions; electricity production still leads at 32.1%.
-
-Cluster 4 (e.g. Germany, Russia): Large, high-demand economies dominated by public electricity and heat production, which is also the main emitting sector at 39.1%.
-
-Across all clusters, public electricity and heat production is consistently the largest source of CO₂ emissions, confirming the energy sector’s dominant environmental impact.
-
-### 3.9 Co2 Emissions per Capita after the breakup of Yugoslavia 
-
-![image.png](./img/breakup_yugo.png)
-
-Pre-breakup (1985–1990): Emissions were relatively stable, reflecting Yugoslavia’s unified industrial policies.
-
-Post-breakup (1990s): Likely a drop in emissions due to economic collapse, war devastation, and halted industrial activity (especially in Bosnia, Serbia, and Croatia).
-
-2000s Recovery: Gradual increase as economies stabilized, but divergence emerges based on energy policies and EU integration.
-
-2010s–2020: EU members (Slovenia, Croatia): Emissions decline due to stricter environmental regulations and renewable energy adoption. Non-EU countries (Serbia, Bosnia, N. Macedonia, Montenegro): Emissions remain higher, tied to coal dependence and slower green transitions.
-
-### 3.10 Forecasting CO₂ Emissions (2020–2030)
-
-To forecast emissions, we tested several models and chose the best performer for each country. For Greece, SARIMA gave the most reliable results.
-
-To improve accuracy, we created features like:
-
-Policy markers (Kyoto, Paris)
-
-Lagged emissions (1–3 years)
-
-Rolling stats (mean & std over 3 years)
-
-The forecast shows a slow but steady decline in CO₂ emissions, continuing the post-2010 downward trend—likely driven by EU regulations and clean energy adoption.
-
-![image.png](./img/forecast_greece.png)
-
-![image-2.png](./img/forecast_total.png)
-
-The grouped overall CO2 emissions for Europe's countries that we had in the dataset. We can see a decline of CO2 emissions in the near future.
