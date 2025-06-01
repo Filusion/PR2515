@@ -20,7 +20,9 @@ Gain insights into historical and current emission levels, helping to understand
 
 
 # Load data
-data_path = Path(__file__).resolve().parents[2] / "data" / "co2_emmisions_complicated.csv"
+BASE_DIR = Path(__file__)  
+data_path = BASE_DIR.parents[2] / "data" / "co2_emmisions_complicated.csv"
+
 df_co2 = pd.read_csv(data_path)
 # Filter European countries
 df_co2_europe = df_co2[df_co2['Region'].str.contains('Europe', case=False, na=False)]

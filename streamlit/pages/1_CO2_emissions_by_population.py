@@ -16,9 +16,11 @@ Explore how emissions and population have changed over time, see the top 10 coun
 and also view a map visualization highlighting the emissions per across the continent.
 """)
 
-data_path1 = Path(__file__).resolve().parents[2] / "data" / "co2_emmisions_complicated.csv"
-data_path2 = Path(__file__).resolve().parents[2] / "data" / "world_population.csv"
-data_path3 = Path(__file__).resolve().parents[2] / "data" / "cultural" / "ne_110m_admin_0_countries.shp"
+BASE_DIR = Path(__file__)  
+
+data_path1 = BASE_DIR.parents[2] / "data" / "co2_emmisions_complicated.csv"
+data_path2 = BASE_DIR.parents[2] / "data" / "world_population.csv"
+data_path3 = BASE_DIR.parents[2] / "data" / "cultural" / "ne_110m_admin_0_countries.shp"
 df_co2 = pd.read_csv(data_path1)
 df_pop = pd.read_csv(data_path2)
 world = gpd.read_file(data_path3)
