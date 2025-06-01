@@ -9,7 +9,7 @@ numpy
 warnings
 os
 sklearn
-geodatasets
+
 ipywidgets
 IPython
 cryptography
