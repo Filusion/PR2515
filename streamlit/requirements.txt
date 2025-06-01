@@ -1,11 +1,10 @@
 streamlit
 pandas
 matplotlib
-pathlib
 seaborn
 geopandas
 numpy
-sklearn
+scikit-learn
 geodatasets
 ipywidgets
 ipython
