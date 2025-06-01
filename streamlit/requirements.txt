@@ -1,0 +1,15 @@
+streamlit
+pandas
+matplotlib
+pathlib
+seaborn
+geopandas
+matplotlib
+numpy
+warnings
+os
+sklearn
+geodatasets
+ipywidgets
+IPython
+cryptography
